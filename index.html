@@ -6,7 +6,35 @@
     <title>Fluency</title>
   </head>
   <body>
-    <div id="app"></div>
+    <f-root></f-root>
     <script src="./dist/fluency.umd.js"></script>
+
+    <script>
+      new Fluency({
+        webComponentName: 'f-root',
+        template: `
+          <div class="my-class">
+              <p>I Customer</p>
+              <a href="">fsdfsdfsddsfsdfsdfds</a>
+              <img src="http://www.itcast.cn/2018czgw/images/logo.png" alt="NO IMG">
+          </div>
+          <p>slipt</p>
+          <div class="my-class">
+              <p>-------------</p>
+              <p>-------------</p>
+              <p>-------------</p>
+          </div>
+        `,
+        style: `
+          .my-class {
+              background-color: #0f0;
+          }
+
+          .my-class p {
+              background-color: aqua;
+          }
+        `,
+      });
+    </script>
   </body>
 </html>
