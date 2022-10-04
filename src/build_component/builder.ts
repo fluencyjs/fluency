@@ -1,5 +1,5 @@
 import { ComponentProps } from './types';
-import WebComponent, { WEB_COMPONENT_REPOSITORY } from './Component';
+import WebComponent, { WEB_COMPONENT_REPOSITORY } from './component';
 
 class Builder {
     private props: ComponentProps;
