@@ -87,10 +87,10 @@ class CreateModule implements Module {
 
     syncUpdate() {
         if (this.dirty & 1) {
-            freshData(this.text2, this.ctx[0]);
+            this.text2 = freshData(this.text2, this.ctx[0]);
         }
         if (this.dirty & 1) {
-            freshData(this.text4, this.ctx[0]);
+            this.text4 = freshData(this.text4, this.ctx[0]);
         }
     }
 
@@ -101,6 +101,11 @@ class CreateModule implements Module {
             msg = "Hello 1111";
             $$response(this, 0, msg);
         }, 3000);
+
+        setTimeout(() => {
+            msg = "Hello 哈哈哈";
+            $$response(this, 0, msg);
+        }, 6000);
 
         this.ctx = [msg];
     }

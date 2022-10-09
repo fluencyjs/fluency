@@ -25,15 +25,23 @@ export function $$response(module: Module, index: number, newValue: any): void {
     }
 
     module.ctx[index] = newValue;
-    // TODO 研究修改
-    module.dirty = 1;
+    module.dirty = makeDirty(module.dirty, index);
     module.syncUpdate();
+    
+    // 重置dirty
+    module.dirty = 0;
 }
 
-export function freshData(node: ElementNode | undefined, value: any): void {
+function makeDirty(dirty: number, index: number): number {
+    return (dirty + (1 << index));
+}
+
+export function freshData(node: ElementNode | undefined, value: any): ElementNode {
     if (node === undefined) {
-        return;
+        return text('');
     }
 
-    node.replaceWith(value);
+    const newTextNode = text(value);
+    node.replaceWith(newTextNode);
+    return newTextNode;
 }

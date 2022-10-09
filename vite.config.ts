@@ -9,6 +9,7 @@ export default defineConfig({
       fileName: (format) => `fluency.${format}.js`
     },
     rollupOptions: {
-    }
+    },
+    sourcemap: true,
   }
 });
